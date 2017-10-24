@@ -7,3 +7,4 @@ web.config
 */cache/*
 !*/cache/index.html
 !*/cache/.htaccess
+Thumbs.db

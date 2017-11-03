@@ -177,7 +177,7 @@ a {
    }
 #option_area {
 	width: 90%;
-    height: 150px;
+    height: auto;
 }
 #option_area_2 {
 	width: 30%;
@@ -189,6 +189,7 @@ a {
 #area1 {
 	width: 40%;
 	float: left;
+	
 }
 #area2 {
 	margin-left: 35%;

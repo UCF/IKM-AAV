@@ -37,7 +37,11 @@
 
 	<div id="page_title">Welcome</div>
 	
-	<div id="page_summary">Welcome to the Academic Analytics Faculty validation tool.</div>
+	<div id="page_summary">Welcome to the Academic Analytics Faculty validation tool.
+	<P>This tool will allow users to view their own scholarly activity collected by Academic Analytics for the following key metrics: articles, citations, books, conference proceedings, grants, and awards.  The data for each metric can be
+	seen by clicking on the tabs below.  If the message "No data to display" is shown, it simply means that academic analytics does not have information on you for the specfied area.
+
+	</div>
 	
 	<div id="option_area_2">
 		Most recent release file: <strong><?php echo $release; ?></strong>
@@ -128,14 +132,14 @@
 				</div>
 			</div>
 		</div>
-
 		</fieldset>
 	</div>
-</div>		
 	<fieldset class="tabinfo">
-	<legend id="info_title"></legend>
-	<div id="info_area"></div>
+		<legend id="info_title"></legend>
+		<div id="info_area"></div>
 	</fieldset>
+</div>		
+	
 	<div >
 		Export table: 
 		<!-- <a title="Excel" id="xlsExport"><img align="top" src="../img/page_excel.png"></a> -->
@@ -170,7 +174,7 @@ $(document).ready(function () {
 		var tabclicked = 0; //set on zero because every entry defaults to tab 0
 		tabInfo = tabdiv(tabclicked);
 		$('#info_area').empty();
-		$('#info_area').text(info[tabInfo]);
+		$('#info_area').html(info[tabInfo]);
 		
 		$('#jqxTabs').on('tabclick', function (event) {
 			 tabclicked = event.args.item;

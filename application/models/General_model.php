@@ -32,9 +32,9 @@ class General_model extends CI_Model
 		$query = $this->db->query("Select distinct releasename from AA_JOURNALS ORDER BY releasename DESC");
 		return $query;
 	}
-	function get_Faculty($nid){
+	function get_Faculty($nid,$release){
 
-		$query = $this->db->query("Select AA_FACULTY.*, AA_FACULTY_DATA.unitname, AA_FACULTY_DATA.facultytitle, AA_FACULTY_DATA.ranktypename, AA_FACULTY_DATA.Tenure_Status FROM AA_FACULTY LEFT JOIN AA_FACULTY_DATA on AA_FACULTY.EMPLID = AA_FACULTY_DATA.EMPLID WHERE AA_FACULTY.OPRID LIKE '" . $nid . "'");
+		$query = $this->db->query("Select AA_FACULTY.*, AA_FACULTY_DATA.unitname, AA_FACULTY_DATA.facultytitle, AA_FACULTY_DATA.ranktypename, AA_FACULTY_DATA.Tenure_Status FROM AA_FACULTY LEFT JOIN AA_FACULTY_DATA on AA_FACULTY.EMPLID = AA_FACULTY_DATA.EMPLID WHERE AA_FACULTY_DATA.releasename LIKE '" . $release . "' AND AA_FACULTY.OPRID LIKE '" . $nid . "'");
 		return $query;
 	}
 	function get_Journals($nid,$release){

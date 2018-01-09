@@ -35,16 +35,10 @@
 
 
 
-	<div id="page_title">Welcome</div>
-	
-	<div id="page_summary">Welcome to the Academic Analytics Faculty validation tool.
-	<P>This tool will allow users to view their own scholarly activity collected by Academic Analytics for the following key metrics: articles, citations, books, conference proceedings, grants, and awards.  The data for each metric can be
-	seen by clicking on the tabs below.  If the message "No data to display" is shown, it simply means that academic analytics does not have information on you for the specfied area.
-
-	</div>
-	
+	<div id="page_title">Data Tool</div>
+	<p>
 	<div id="option_area_2">
-		Most recent release file: <strong><?php echo $release; ?></strong>
+		Current release file: <strong><?php echo $release; ?></strong>
 	</div>
 	<!--<div id="option_area_2">
 				<label>Release Version:</label>

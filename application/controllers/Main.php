@@ -23,8 +23,17 @@ class Main extends CI_Controller {
 		$this->lang->load('auth');
 		$this->load->config('main', TRUE);
 	}
-	
-	public function index()
+	public function index(){
+		if (!$this->ion_auth->logged_in())
+		{
+			redirect('auth/login', 'refresh');
+		}
+		
+		$data['title'] = 'IKM - Faculty Validation for Academic Analytics';
+		
+		$this->load->view('home',$data);
+	}
+	public function data_main()
 	{
 		
 		if (!$this->ion_auth->logged_in())
@@ -60,8 +69,13 @@ class Main extends CI_Controller {
 				$fac_choice_data = $this->General_model->get_user('%');
 			} 				
 			
+			//get the information areas
+			$info = $this->config->item('Info','main');
+			
+			//get default release name
+			$release = $this->config->item('Release','main');
 		
-			$faculty_data = $this->General_model->get_Faculty($nid);
+			$faculty_data = $this->General_model->get_Faculty($nid,$release);
 			
 			foreach($faculty_data->result() as $key => $row){
 				$emplid = $row->EMPLID;
@@ -71,11 +85,7 @@ class Main extends CI_Controller {
 				$unit = $row->unitname;
 			}
 			
-			//get the information areas
-			$info = $this->config->item('Info','main');
 			
-			//get default release name
-			$release = $this->config->item('Release','main');
 			
 			//get the summarized data
 			$summ_grants = 0;
@@ -126,7 +136,7 @@ class Main extends CI_Controller {
 		 $nid = $this->corelib->convert_id($nid_get);
 		 
 		 $release = $this->config->item('Release','main');
-		 
+
 		 //for json
          $itemlist = array();
 		 
@@ -138,7 +148,7 @@ class Main extends CI_Controller {
 			$grant_dollars = "$0.00";
 			$grant_verbiage = "0 for $0.00";
 		 
-		 $faculty_data = $this->General_model->get_Faculty($nid);
+		 $faculty_data = $this->General_model->get_Faculty($nid,$release);
 			
 		foreach($faculty_data->result() as $key => $row){
 			

@@ -1,5 +1,5 @@
 function initFacultyData(idin){
-	
+
 	$.ajax({
 		type: "GET",
 		url: "../main/faculty_summary",

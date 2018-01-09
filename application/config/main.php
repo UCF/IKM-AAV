@@ -10,7 +10,7 @@ $config['all'] = array('Admin','All');
 $config['admin'] = array('Admin');
 
 /** Default time range **/
-$config['Release'] = 'AAD2015.06.703';
+$config['Release'] = 'AAD2016.00.788';
 
 /** tables - make them portable incase main tables change**/
 $config['tables']['plans_extended']           = 'APIM_Plans_Extended';
